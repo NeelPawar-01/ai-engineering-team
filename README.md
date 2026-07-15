@@ -1,92 +1,92 @@
-# AI Engineering Team
+# 🤖 AI Engineering Team
 
-An enterprise-grade multi-agent AI engineering system that simulates a real-world software development team using specialized AI agents.
+A multi-agent AI software engineering system built with **CrewAI**, **Python**, and **OpenAI** that simulates how a real engineering team collaborates to design, develop, review, and test software.
 
-Instead of relying on a single LLM, the system assigns dedicated responsibilities to multiple AI agents that collaborate to analyze requirements, generate production-ready code, review implementations, and validate quality before delivery.
+Instead of relying on a single AI agent to complete an entire software project, this system divides responsibilities among specialized agents, producing more structured, maintainable, and realistic software development workflows.
 
-This project demonstrates how multi-agent systems can automate software engineering workflows using CrewAI, Python, Docker, and Large Language Models.
+---
+
+# Overview
+
+Modern software development involves multiple specialists working together rather than one person doing everything.
+
+This project recreates that workflow using AI agents.
+
+Given a software request such as:
+
+> **"Build a Trading Simulation Platform"**
+
+the system automatically coordinates multiple AI agents that collaborate to:
+
+- Understand requirements
+- Design the solution
+- Generate production-ready code
+- Review implementation quality
+- Test the generated application
+
+Each agent performs a dedicated responsibility before passing its output to the next agent, closely simulating a real software engineering team.
 
 ---
 
 # Architecture
 
 ```
-                User Request
-                     │
-                     ▼
-          Engineering Manager
-                     │
-      ┌──────────────┴──────────────┐
-      ▼                             ▼
-Front-End Engineer         Back-End Engineer
-      │                             │
-      └──────────────┬──────────────┘
-                     ▼
-             Testing Engineer
-                     │
-                     ▼
-              Final Deliverable
+                    User Request
+                          │
+                          ▼
+              Engineering Lead Agent
+        (Requirement Analysis & Planning)
+                          │
+                          ▼
+               Frontend Engineer Agent
+               (UI Implementation)
+                          │
+                          ▼
+               Backend Engineer Agent
+          (Business Logic & APIs)
+                          │
+                          ▼
+                Testing Engineer Agent
+          (Validation & Quality Assurance)
+                          │
+                          ▼
+                 Final Software Output
 ```
-
----
-
-# Features
-
-- Multi-Agent Architecture
-- CrewAI Orchestration
-- Automated Requirement Analysis
-- Parallel Engineering Workflow
-- AI Code Generation
-- AI Code Review
-- Automated Testing
-- Docker-based Safe Code Execution
-- Modular Agent Design
-- Production-Oriented Workflow
-
----
-
-# Tech Stack
-
-- Python
-- CrewAI
-- OpenAI
-- Docker
-- YAML
-- Prompt Engineering
-- Multi-Agent Systems
 
 ---
 
 # AI Agents
 
-## Engineering Manager
+## Engineering Lead
 
 Responsible for:
 
-- Understanding project requirements
-- Breaking work into engineering tasks
+- Understanding user requirements
+- Breaking complex problems into development tasks
+- Planning implementation strategy
 - Coordinating the engineering workflow
 
 ---
 
-## Front-End Engineer
+## Frontend Engineer
 
 Responsible for:
 
-- Designing UI components
-- Implementing frontend logic
-- Generating clean frontend code
+- UI development
+- User experience
+- Component generation
+- Frontend architecture
 
 ---
 
-## Back-End Engineer
+## Backend Engineer
 
 Responsible for:
 
-- Designing backend architecture
-- Implementing APIs
-- Business logic development
-- System integration
+- Business logic
+- API implementation
+- Database interactions
+- Backend architecture
 
 ---
 
@@ -94,21 +94,37 @@ Responsible for:
 
 Responsible for:
 
-- Code validation
-- Quality assurance
-- Bug detection
-- Final verification
+- Reviewing generated code
+- Identifying defects
+- Testing functionality
+- Validating software quality
+
+---
+
+# Technology Stack
+
+- Python
+- CrewAI
+- OpenAI GPT Models
+- Docker
+- YAML Configuration
+- UV Package Manager
 
 ---
 
 # Workflow
 
-1. User submits software requirements.
-2. Engineering Manager analyzes the request.
-3. Front-End Engineer generates UI implementation.
-4. Back-End Engineer develops backend services.
-5. Testing Engineer validates the complete solution.
-6. Final implementation is generated.
+1. User submits a software development request.
+
+2. Engineering Lead analyzes the requirements.
+
+3. Frontend Engineer develops the user interface.
+
+4. Backend Engineer builds the application logic.
+
+5. Testing Engineer validates the final implementation.
+
+6. Final software solution is produced.
 
 ---
 
@@ -116,13 +132,19 @@ Responsible for:
 
 ```
 ai-engineering-team/
-│
-├── src/
-├── config/
+
 ├── knowledge/
-├── tools/
-├── main.py
-├── crew.py
+├── sandbox/
+├── src/
+│   └── engineering_team/
+│       ├── config/
+│       │   ├── agents.yaml
+│       │   └── tasks.yaml
+│       ├── tools/
+│       ├── crew.py
+│       └── main.py
+├── AGENTS.md
+├── pyproject.toml
 └── README.md
 ```
 
@@ -130,53 +152,115 @@ ai-engineering-team/
 
 # Installation
 
+## Prerequisites
+
+- Python 3.12 or 3.13
+- UV Package Manager
+- OpenAI API Key
+
+Clone the repository:
+
 ```bash
 git clone https://github.com/NeelPawar-01/ai-engineering-team.git
-
 cd ai-engineering-team
+```
 
-pip install -r requirements.txt
+Install UV (if not already installed):
+
+```bash
+py -m pip install uv
+```
+
+Install project dependencies:
+
+```bash
+py -m uv sync
+```
+
+Create a `.env` file in the project root:
+
+```env
+OPENAI_API_KEY=your_api_key_here
+```
+
+Run the project:
+
+```bash
+crewai run
+```
+
+> **Note:** Some Windows environments may experience issues with the CrewAI CLI launcher. If this occurs, run the project from the virtual environment or directly through the Python entry point.
+
+---
+
+# Example Input
+
+```
+Build a Trading Simulation Platform
 ```
 
 ---
 
-# Run
+# Example Workflow
 
-```bash
-crewai run
+```
+Engineering Lead
+        ↓
+Requirement Analysis
+
+        ↓
+
+Frontend Engineer
+        ↓
+User Interface
+
+        ↓
+
+Backend Engineer
+        ↓
+Business Logic
+
+        ↓
+
+Testing Engineer
+        ↓
+Validation
+
+        ↓
+
+Final Software
 ```
 
 ---
 
 # Skills Demonstrated
 
-- Agentic AI
+- Multi-Agent AI Systems
+- Agent Orchestration
+- LLM Workflow Design
+- CrewAI Framework
+- Software Architecture
+- AI-assisted Software Engineering
 - Prompt Engineering
-- Multi-Agent Systems
-- AI Workflow Design
-- Python
-- Production AI Architecture
-- AI Orchestration
-- Enterprise Automation
+- Python Development
+- AI Collaboration Patterns
 
 ---
 
 # Future Improvements
 
-- Human-in-the-loop approvals
-- Memory-enabled agents
-- RAG integration
-- GitHub integration
-- CI/CD automation
+- Local LLM support using Ollama
+- CI/CD integration
+- Automated code deployment
+- GitHub Actions pipeline
+- Human-in-the-loop approval workflow
 - Multi-model support
+- Performance monitoring
 
 ---
 
-# Author
+# About
 
-**Neel Pawar**
+This project was developed to explore how specialized AI agents can collaboratively perform software engineering tasks by simulating real-world engineering team workflows using CrewAI.
 
-AI Engineer | Agentic AI | Python | Multi-Agent Systems
-
-GitHub:
-https://github.com/NeelPawar-01
+It demonstrates principles of agent orchestration, autonomous task delegation, and collaborative AI systems for modern software development.
