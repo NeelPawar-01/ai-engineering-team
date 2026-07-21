@@ -55,6 +55,24 @@ Each agent performs a dedicated responsibility before passing its output to the 
 
 ---
 
+## Docker
+
+### Build
+
+```bash
+docker build -t ai-engineering-team .
+```
+
+### Run
+
+```bash
+docker run -e OPENAI_API_KEY=YOUR_OPENAI_API_KEY ai-engineering-team
+```
+
+The application launches the CrewAI multi-agent workflow inside a Docker container.
+
+---
+
 # AI Agents
 
 ## Engineering Lead
